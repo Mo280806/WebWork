@@ -1,0 +1,331 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>课程表</title>
+    <style>
+        body {
+            background: #f5f7fa;
+            padding: 20px;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        .schedule {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative; /* 为z-index生效做准备 */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            min-height: 500px;
+            position: relative; /* 为z-index生效做准备 */
+        }
+        caption {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4a90e2;
+        }
+        th {
+            background: #4a90e2;
+            color: white;
+            padding: 12px 5px;
+            border: 1px solid #e0e6ed;
+        }
+        td {
+            border: 1px solid #e0e6ed;
+            padding: 8px;
+            position: relative; /* 为z-index生效做准备 */
+        }
+        tr:hover {
+            background: #f0f7ff;
+        }
+        .break {
+            background: #f8f9fa;
+            color: #666;
+            font-style: italic;
+        }
+        .course {
+            position: relative;
+            padding: 8px 0;
+            min-height: 60px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.2s;
+            z-index: 1; /* 基础层级 */
+        }
+        .course:hover {
+            background: #f0f7ff;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(74,144,226,0.15);
+            z-index: 2; /*  hover时提高层级 */
+        }
+        .detail {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border: 1px solid #e0e6ed;
+            border-radius: 6px;
+            padding: 10px;
+            width: 200px;
+            text-align: left;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            font-size: 0.9em;
+            z-index: 100; /* 确保悬浮内容层级最高 */
+        }
+        .course:hover .detail {
+            display: block;
+        }
+        .major { border-left: 4px solid #4a90e2; }
+        .public { border-left: 4px solid #5cb85c; }
+        .elective { border-left: 4px solid #f0ad4e; }
+        .sport { border-left: 4px solid #d9534f; }
+    </style>
+</head>
+<body>
+    <div class="schedule">
+        <table>
+            <caption>2025秋课程表</caption>
+            <tr>
+                <th>节次\周</th>
+                <th>星期一</th>
+                <th>星期二</th>
+                <th>星期三</th>
+                <th>星期四</th>
+                <th>星期五</th>
+                <th>星期六</th>
+                <th>星期天</th>
+            </tr>
+            <tr>
+                <th>1-2</th>
+                <td>
+                    <div class="course major">
+                        数据结构<br>博知楼406
+                        <div class="detail">
+                            教师:于晓康<br>学分：4.5<br>时间：9-16周
+                        </div>
+                    </div>
+                </td>
+                <td></td>
+                <td>
+                    <div class="course major">
+                        软件工程<br>博知楼205
+                        <div class="detail">
+                            教师:逄俊杰<br>学分：3<br>时间：1-18周
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="course major">
+                        数字建模<br>慎行楼302
+                        <div class="detail">
+                            教师:赵俊莉<br>学分：3<br>时间：9-16周
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="course major">
+                        数字建模<br>博知楼109
+                        <div class="detail">
+                            教师:赵俊莉<br>学分：3<br>时间：1-16周
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="course public">
+                        形势与政策<br>博知楼203
+                        <div class="detail">
+                            教师:修志君<br>学分：0.5<br>时间：13周
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="course major">
+                        Python<br>博知楼506
+                        <div class="detail">
+                            教师:杨姗姗<br>学分：3<br>时间：9-16周
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>3-4</th>
+                <td></td>
+                <td>
+                    <div class="course sport">
+                        体育<br>健美操室
+                        <div class="detail">
+                            教师:李敏<br>学分：1<br>时间：1-18周
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="course public">
+                        概率论<br>博知楼102
+                        <div class="detail">
+                            教师:宋凯<br>学分：3<br>时间：单周
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="course major">
+                        Web<br>慎行楼306<br>
+                        <hr>数字建模<br>慎行楼302
+                        <div class="detail">
+                            教师:解新峰<br>学分：2<br>时间：1-8周<br>
+                            <hr>教师:赵俊莉<br>学分：3<br>时间：9-16周
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="course public">
+                        英语<br>博学楼404
+                        <div class="detail">
+                            教师:刘誉<br>学分：1<br>时间：单周
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="course public">
+                        形势与政策<br>博知楼203
+                        <div class="detail">
+                            教师:修志君<br>学分：0.5<br>时间：13周
+                        </div>
+                    </div>
+                </td>     
+                <td>
+                    <div class="course major">
+                        Python<br>博知楼506
+                        <div class="detail">
+                            教师:杨姗姗<br>学分：3<br>时间：9-16周
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th class="break" colspan="8">午休</th>
+            </tr>
+            <tr>
+                <th>5-6</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <div class="course major">
+                        软件工程<br>博远楼305
+                        <div class="detail">
+                            教师:逄俊杰<br>学分：3<br>时间：单周+18周
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="course public">
+                        近现代史<br>博文楼217
+                        <div class="detail">
+                            教师:王秋月<br>学分：3<br>时间：1-17周
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="course major">
+                        Web<br>慎行楼306
+                        <div class="detail">
+                            教师:解新峰<br>学分：2<br>时间：9-16周
+                        </div>
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>7-8</th>
+                <td>
+                    <div class="course public">
+                        概率论<br>博知楼101
+                        <div class="detail">
+                            教师:宋凯<br>学分：3<br>时间：1-18周
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="course major">
+                        Python<br>博知楼206
+                        <div class="detail">
+                            教师:杨姗姗<br>学分：3<br>时间：1-16周
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="course major">
+                        数据结构<br>博知楼306
+                        <div class="detail">
+                            教师:于晓康<br>学分：4.5<br>时间：1-18周
+                        </div>
+                    </div>
+                </td>
+                <td></td>
+                <td>
+                    <div class="course major">
+                        数据结构<br>博知楼213
+                        <div class="detail">
+                            教师:于晓康<br>学分：4.5<br>时间：1-18周
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="course major">
+                        Web<br>慎行楼306
+                        <div class="detail">
+                            教师:解新峰<br>学分：2<br>时间：1-8周
+                        </div>
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th class="break" colspan="8">晚饭</th>
+            </tr>
+            <tr>
+                <th>9-10</th>
+                <td>
+                    <div class="course elective">
+                        大数据<br>博逸楼510
+                        <div class="detail">
+                            教师:吴舜尧<br>学分：1.5<br>时间：1-16周
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="course elective">
+                        生化危机<br>博知楼102
+                        <div class="detail">
+                            教师:王怀志<br>学分：2<br>时间：1-16周
+                        </div>
+                    </div>
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+                    <div class="course elective">
+                        创新创业<br>博学楼505
+                        <div class="detail">
+                            教师:曹明惠<br>学分：2<br>时间：1-16周
+                        </div>
+                    </div>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
