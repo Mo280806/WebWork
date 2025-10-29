@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mimo's Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; 
+        }
+
+        body {
+            background-color: #f0f5f0;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 30px 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            font-size: 2.5em;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: #4a90e2;
+            border-radius: 2px;
+        }
+
+        .nav-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        #nav {
+            background-color: #f0f7f1;
+            padding: 12px 0;
+            text-align: center;
+            list-style: none;
+            box-shadow: 0 3px 10px rgba(74,144,226,0.1);
+            border-radius: 8px;
+            position: relative;
+        }
+
+        #nav::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #4a90e2, transparent);
+        }
+
+        #nav > li {
+            display: inline-block;
+            width: 18%;
+            max-width: 180px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        #nav > li > a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 10px 5px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        #nav > li:hover {
+            background-color: #e6f0ea;
+            transform: translateY(-2px);
+        }
+
+        #nav > li:hover > a {
+            color: #4a90e2;
+        }
+
+        .nav2 {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transform: translateX(-50%) translateY(10px); 
+            background-color: white;
+            list-style: none;
+            width: 200px;
+            padding: 8px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 6px;
+            margin: 5px 0 0;
+            transition: all 0.3s ease; 
+            z-index: 10;
+        }
+
+        .nav2::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 0 6px 6px 6px;
+            border-style: solid;
+            border-color: transparent transparent white transparent;
+        }
+
+        .nav2 li {
+            transition: background-color 0.2s ease;
+        }
+
+        .nav2 li a {
+            color: #666;
+            text-decoration: none;
+            display: block;
+            padding: 9px 15px;
+            transition: all 0.2s ease;
+        }
+
+        .nav2 li:hover {
+            background-color: #f0f7f1;
+        }
+
+        .nav2 li:hover a {
+            color: #4a90e2;
+            padding-left: 18px; 
+        }
+
+        #nav li:hover .nav2 {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(-50%) translateY(0); 
+        }
+
+        .nav2 .divider {
+            height: 1px;
+            background: #f0f0f0;
+            margin: 5px 0;
+        }
+
+        @media (max-width: 800px) {
+            #nav > li {
+                width: 30%;
+                margin: 3px 0;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Mimo's Home</h1>
+    
+    <div class="nav-wrapper">
+        <ul id="nav">
+            <li>
+                <a href="#">My Project</a>
+                <ul class="nav2">
+                    <li><a href="https://mo280806.github.io/WebWork/实验1.html">九三阅兵</a></li>
+                    <li><a href="https://mo280806.github.io/WebWork/实验2.html">2025秋课程表</a></li>
+                    <li><a href="#">Sky-Children of Light</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">所有项目</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">分类</a>
+                <ul class="nav2">
+                    <li><a href="#">技术</a></li>
+                    <li><a href="#">设计</a></li>
+                    <li><a href="#">生活</a></li>
+                    <li><a href="#">旅行</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">关于我</a>
+                <ul class="nav2">
+                    <li><a href="#">个人介绍</a></li>
+                    <li><a href="#">我的技能</a></li>
+                    <li><a href="#">经历</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">资源</a>
+                <ul class="nav2">
+                    <li><a href="#">学习资料</a></li>
+                    <li><a href="#">实用工具</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">推荐链接</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">联系</a>
+                <ul class="nav2">
+                    <li><a href="#">邮箱</a></li>
+                    <li><a href="#">电话</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
